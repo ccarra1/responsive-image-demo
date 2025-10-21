@@ -10,13 +10,13 @@
     <p>This demo will correctly switch between <code>srcset</code> images based on layout width and screen size.</p>
     <img
         id="responsiveImage"
-        src="images/basket-600w.jpg" 
-        srcset="images/basket-200w.jpg 200w, 
-            images/basket-300w.jpg 300w, 
-            images/basket-600w.jpg 600w" 
-            sizes="(min-width: 1200px) 200w, 
-            (min-width: 900px) 300w, 
-            600w">
+        src="https://placehold.co/600x400" 
+        srcset="https://placehold.co/300x400 300w,
+                https://placehold.co/500x400 500w,
+                https://placehold.co/700x400 700w,
+                https://placehold.co/900x400 900w"
+                sizes="(min-width: 300px) 600w, (min-width:500px) 1000w; (min-width:700px) 1400w, 1800w"
+            alt="random image from picsum.photos">
     <p id="currentSrcOutput">Loading image...</p>
 
     <script>
@@ -24,7 +24,7 @@
     const output = document.getElementById('currentSrcOutput');
 
     function updateCurrentSrc() {
-        output.textContent = "📦 Image currently being used: " + img.currentSrc;
+        output.textContent = "Image currently being used: " + img.currentSrc;
     }
 
     window.addEventListener('resize', updateCurrentSrc);
