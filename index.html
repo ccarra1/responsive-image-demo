@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Responsive Image Demo (Fixed)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <h1>Responsive Image Demo</h1>
+    <p>This demo will correctly switch between <code>srcset</code> images based on layout width and screen size.</p>
+    <img
+        id="responsiveImage"
+        src="images/basket-600w.jpg" 
+        srcset="images/basket-200w.jpg 200w, 
+            images/basket-300w.jpg 300w, 
+            images/basket-600w.jpg 600w" 
+            sizes="(min-width: 1200px) 200w, 
+            (min-width: 900px) 300w, 
+            600w">
+    <p id="currentSrcOutput">Loading image...</p>
+
+    <script>
+    const img = document.getElementById('responsiveImage');
+    const output = document.getElementById('currentSrcOutput');
+
+    function updateCurrentSrc() {
+        output.textContent = "📦 Image currently being used: " + img.currentSrc;
+    }
+
+    window.addEventListener('resize', updateCurrentSrc);
+    window.addEventListener('load', updateCurrentSrc);
+    </script>
+</body>
+</html>
